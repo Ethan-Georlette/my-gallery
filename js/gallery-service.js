@@ -21,3 +21,7 @@
      })
      return proj[0];
  }
+ function getUrl(mail,subject,body){
+   return `https://mail.google.com/mail/?view=cm&fs=1&to=Ethan.georlette1@Gmail.com
+   &su=${subject}&body=${body}`;
+ }

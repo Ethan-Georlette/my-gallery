@@ -6,6 +6,7 @@ function initGame() {
     createProjs();
     renderPortfolio();
     $('.portfolio-link').click(onPortfolioLink);
+    $('#submit').click(onContact);
 
 }
 
@@ -45,6 +46,7 @@ function renderPortfolio() {
 function onPortfolioLink() {
     renderModal(this.id)
 }
+
 function renderModal(id) {
     var proj=getProj(id);
     var lablesStr=proj.lables.reduce(function(acc,lable){acc+=' #'+lable;return acc},'');
@@ -65,4 +67,29 @@ function renderModal(id) {
   Close Project</button>
   `
   $('.modal-body').html(strHtml);
+}
+// {/* <div class="form-group">
+// <label for="email">Your E-mail</label></br>
+// <input type="email" class="form-control form-control-lg" id="email"></br>
+// </div>
+// <div class="form-group">
+// <label for="subject">Subject</label></br>
+// <input type="text" id="subject" class="form-control form-control-lg" placeholder="Type subject here">
+// </div>
+// <div class="form-group">
+//   <label for="msg-body">Message Body</label>
+// <textarea id="msg-body" rows="10"  form="contactForm"  class="form-control ">
+// </textarea>
+// </div>
+// <div class="form-group">
+// <button type="button" class="btn btn-primary" id="submit">Submit</button>
+// </div> */}
+// // </form>
+
+function onContact(){
+    var mail=$('#email').val();
+    var subject=$('#subject').val();
+    var msgBody=$('#msg-body').val();
+    window.open(getUrl(mail,subject,msgBody),"_blank");
+
 }
