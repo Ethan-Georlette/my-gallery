@@ -5,6 +5,7 @@ $(document).ready(initGame);
 function initGame() {
     createProjs();
     renderPortfolio();
+    $('.portfolio-link').click(onPortfolioLink);
 
 }
 
@@ -20,14 +21,14 @@ function renderPortfolio() {
     var projs = getProjs()
     var strHTML = projs.reduce(function (acc, proj) {
         var strHtml = `
-           <div class="col-md-4 col-sm-6 portfolio-item" id="${proj.id}">
-             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+           <div class="col-md-4 col-sm-6 portfolio-item">
+             <a class="portfolio-link" data-toggle="modal" id="${proj.id}" href="#portfolioModal">
                <div class="portfolio-hover">
                  <div class="portfolio-hover-content">
                    <i class="fa fa-plus fa-3x"></i>
                  </div>
                </div>
-               <img class="img-fluid" src="img/portfolio/${proj.id}.png" alt="">
+               <img class="img-fluid rounded" src="img/portfolio/${proj.id}-thumbnail.jpg" alt="">
              </a>
              <div class="portfolio-caption">
                <h4>${proj.name}</h4>
@@ -37,6 +38,31 @@ function renderPortfolio() {
         acc += strHtml;
         return acc;
     }, strHtmlAcc)
-    strHTML+='</div>'
+    strHTML += '</div>'
     $('#portfolio').html(strHTML);
+}
+
+function onPortfolioLink() {
+    renderModal(this.id)
+}
+function renderModal(id) {
+    var proj=getProj(id);
+    var lablesStr=proj.lables.reduce(function(acc,lable){acc+=' #'+lable;return acc},'');
+    console.log(lablesStr);
+    var strHtml = `
+    <h2>${proj.name}</h2>
+    <p class="item-intro text-muted">${proj.title}</br>Click the picture to play</p>
+    <a href="${proj.url}">
+    <img class="img-fluid d-block mx-auto" src="img/portfolio/${proj.id}.png" alt="">
+    </a>
+    <p>${proj.desc}</p>
+<ul class="list-inline">
+  <li>Date: ${proj.publishedAt}</li>
+  <li>Category: ${lablesStr}</li>
+</ul>
+<button class="btn btn-primary" data-dismiss="modal" type="button">
+  <i class="fa fa-times"></i>
+  Close Project</button>
+  `
+  $('.modal-body').html(strHtml);
 }
