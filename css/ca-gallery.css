@@ -120,7 +120,7 @@ body {
 }
 
 #mainNav {
-    background-color: #222222;
+    background-color: #222222af;
     z-index: 5;
 }
 #mainNav .navbar-toggler {
@@ -128,28 +128,29 @@ body {
     right: 0;
     padding: 13px;
     text-transform: uppercase;
-    color: white;
+    color: rgb(255,234,201);
     border: 0;
-    background-color: #fed136;
+    background-color: #71EFA3;
+    box-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
 }
 #mainNav .navbar-brand {
-    color: #fed136;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+    font-weight: bolder;
+    color: #71EFA3;
 }
-#mainNav .navbar-brand.active,
-#mainNav .navbar-brand:active,
-#mainNav .navbar-brand:focus,
+#mainNav .navbar-brand:active, 
 #mainNav .navbar-brand:hover {
-    color: #fec503;
+    color: #ACFFAD;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 90%;
     font-weight: 400;
     padding: 0.75em 0;
     letter-spacing: 1px;
-    color: white;
+    color: rgb(255,234,201);
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
 }
@@ -702,7 +703,8 @@ fieldset[disabled] .btn-primary:hover {
     font-weight: 700;
     padding: 20px 40px;
     border-radius: 3px;
-    color: white;
+    color: rgb(255,234,201);
+    box-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     border-color: #71EFA3;
     background-color: #50CB93;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
